@@ -1,0 +1,41 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd>
+
+<html>
+<head>
+	<title>FunctionStack Demo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset='UTF-8'" />
+
+	<style type='text/css'>
+		
+	</style>
+</head>
+<body>
+<ul>
+	<li><a href='#' id = 'step'>step</a></li>
+	<li><a href='#' id = 'start'>start</a></li>
+	<li><a href='#' id = 'pause'>pause</a></li>
+	<li><a href='#' id = 'stop'>stop</a></li>
+</ul>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js'></script>
+<script type='text/javascript' src='../Source/FunctionStack.js'></script>
+<script type='text/javascript'>
+	var stack = new FunctionStack(
+		function(){console.log('a')},
+		function(){console.log('b')}		
+	);
+
+	stack.push(
+		function(){console.log('c')},
+		function(){console.log('d')},
+		function(){console.log('e')}
+	);
+	
+	$('step').addEvent('click',function(){stack.step()});
+	$('start').addEvent('click',function(){stack.play()});
+	$('pause').addEvent('click',function(){stack.pause()});
+	$('stop').addEvent('click',function(){stack.stop()});
+</script>
+</body>
+</html>
