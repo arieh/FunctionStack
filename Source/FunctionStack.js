@@ -53,7 +53,7 @@ var FunctionStack = new Class({
 		if (this.index < this.list.length) this.list[this.index++].create({'arguments' : arguments || []})();
 	},
 	play : function(duration,args){
-		this.handle = this.step.bind(this).periodical(duration || this.defaultDuration, args || []);
+		this.handle = this.step.periodical(duration || this.defaultDuration, this, args || []);
 		return this;
 	},
 	stop : function(){

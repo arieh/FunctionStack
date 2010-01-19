@@ -18,22 +18,23 @@
 	<li><a href='#' id = 'pause'>pause</a></li>
 	<li><a href='#' id = 'stop'>stop</a></li>
 </ul>
+<div id='res'></div>
 <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js'></script>
 <script type='text/javascript' src='../Source/FunctionStack.js'></script>
 <script type='text/javascript'>
 	var stack = new FunctionStack(
-		function(){console.log('a')},
-		function(){console.log('b')}		
+		function(a){$('res').set('html',a);},
+		function(a){$('res').set('html','b'+a);}		
 	);
 
 	stack.push(
-		function(){console.log('c')},
-		function(){console.log('d')},
-		function(){console.log('e')}
+		function(a){$('res').set('html','c'+a);},
+		function(a){$('res').set('html','d'+a);},
+		function(a){$('res').set('html','e'+a);}
 	);
 	
-	$('step').addEvent('click',function(){stack.step()});
-	$('start').addEvent('click',function(){stack.play()});
+	$('step').addEvent('click',function(){stack.step('avd')});
+	$('start').addEvent('click',function(){stack.play(700,['bvc'])});
 	$('pause').addEvent('click',function(){stack.pause()});
 	$('stop').addEvent('click',function(){stack.stop()});
 </script>
