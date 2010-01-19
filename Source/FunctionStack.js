@@ -50,7 +50,7 @@ var FunctionStack = new Class({
 		this.list.push(func);
 	},
 	step : function(){
-		if (this.index < this.list.length) this.list[this.index++].create({'arguments' : arguments || []});
+		if (this.index < this.list.length) this.list[this.index++].create({'arguments' : arguments || []})();
 	},
 	play : function(duration,args){
 		this.handle = this.step.bind(this).periodical(duration || this.defaultDuration, args || []);
