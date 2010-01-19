@@ -3,6 +3,10 @@ Class: FunctionStack {#FunctionStack}
 
 A small wrapper to the Chan class to supply easy perodical function calls. 
 
+### Demo
+* [Demo @ mooshell](http://mootools.net/shell/6jPMZ/2/)
+
+
 FunctionStack Method: constructor {#FunctionStack:constructor}
 ---------------------------------------------------------------
 ### Syntax
