@@ -1,7 +1,7 @@
 Class: FunctionStack {#FunctionStack}
 ==========================================
 
-A small wrapper to the Chan class to supply easy perodical function calls. 
+A very simple class that allows stacking functions and calling them step by step or priodiacly.
 
 ### Demo
 * [Demo @ mooshell](http://mootools.net/shell/6jPMZ/2/)

@@ -1,6 +1,6 @@
 /*
 ---
-description: A small wrapper to the Chan class to supply easy prodical function calls
+description: A very simple class that allows stacking functions and calling them step by step or priodiacly.
 
 license: MIT-style
 
