@@ -1,7 +1,7 @@
-name:  
+name:  FunctionStack
 author:  arieh
-current:  
-category:  
-tags:  []
-docs:  
-demo:  
+current:  1.0
+category:  Utilities
+tags:  [class]
+docs: http://moodocs.net/arieh/functionstack/FunctionStack  
+demo: http://mootools.net/shell/6jPMZ/2/ 
