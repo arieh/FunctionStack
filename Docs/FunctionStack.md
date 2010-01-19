@@ -21,7 +21,7 @@ FunctionStack Method: constructor {#FunctionStack:constructor}
 
 a list of functions.
 
-FunctionStack Method: Push (#FunctionStack:push}
+FunctionStack Method: Push {#FunctionStack:push}
 -------------------------------------------------
 <big>Pushes functions into the stack</big>
 
@@ -64,7 +64,7 @@ FunctionStack Method: Stop {#FunctionStack:stop}
 ### Syntax
 	stack.stop()
 	
-FunctonStack Method: Reset {#FunctionStack:reset}
+FunctionStack Method: Reset {#FunctionStack:reset}
 ----------------------------------------------------
 <big>Resests the stack index</big>
 
