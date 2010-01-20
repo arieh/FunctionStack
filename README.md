@@ -1,7 +1,7 @@
 FunctionStack
 ========
 A very simple class that allows stacking functions and calling them step by step or priodiacly.
-
+![Screenshot](http://github.com/arieh/FunctionStack/raw/master/screenshot.png)
 How to use
 ----------
 
