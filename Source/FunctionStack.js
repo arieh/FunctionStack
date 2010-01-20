@@ -11,7 +11,7 @@ requires:
 - core/1.2.4: Class
 - core/1.2.4: Class.Extras
 
-provides: FunctionStack
+provides: [FunctionStack]
 
 ...
 */
@@ -37,20 +37,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE 
 */
 var FunctionStack = new Class({
-	handle : $empty,
-	list : [(function(){this.stop();}).bind(this)],
-	index : 0,
-	defaultDuration : 1000,
+	handle : $empty, //holder of interval pointer
+	list : [(function(){this.stop();}).bind(this)], //stack holder
+	index : 0, //current stack index
+	defaultDuration : 1000, //default timeout between function calls
 	initialize: function(){
-		this.push(arguments || []);
+		this.push.apply(this,arguments || []);
 	},
 	push : function(){
 		var func = this.list.pop();
-		this.list.extend($A(arguments).flatten());
+		this.list.extend(arguments);
 		this.list.push(func);
 	},
 	step : function(){
-		if (this.index < this.list.length) this.list[this.index++].create({'arguments' : arguments || []})();
+		if (this.index < this.list.length) this.list[this.index++].apply(null,arguments || []);
 	},
 	play : function(duration,args){
 		this.handle = this.step.periodical(duration || this.defaultDuration, this, args || []);
