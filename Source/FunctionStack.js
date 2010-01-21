@@ -9,7 +9,6 @@ authors:
 
 requires:
 - core/1.2.4: Class
-- core/1.2.4: Class.Extras
 
 provides: [FunctionStack]
 
@@ -50,7 +49,8 @@ var FunctionStack = new Class({
 		this.list.push(func);
 	},
 	step : function(){
-		if (this.index < this.list.length) this.list[this.index++].apply(null,arguments || []);
+		if (this.index < this.list.length) return this.list[this.index++].run(arguments || []);
+		return null;
 	},
 	play : function(duration,args){
 		this.handle = this.step.periodical(duration || this.defaultDuration, this, args || []);
@@ -70,8 +70,6 @@ var FunctionStack = new Class({
 		return this;
 	},
 	clear : function(){
-		var self = this;
-		
 		this.reset();
 		this.list =  [(function(){this.stop();}).bind(this)];
 		return this;
