@@ -4,7 +4,7 @@ Class: FunctionStack {#FunctionStack}
 A very simple class that allows stacking functions and calling them step by step or priodiacly.
 
 ### Demo
-* [Demo @ mooshell](http://mootools.net/shell/6jPMZ/2/)
+[Demo @ gh-pages](http://arieh.github.com/FunctionStack/)
 
 
 FunctionStack Method: constructor {#FunctionStack:constructor}
