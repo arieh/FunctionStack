@@ -11,33 +11,33 @@ FunctionStack Method: constructor {#FunctionStack:constructor}
 ---------------------------------------------------------------
 ### Syntax
 
-	var stack = new FunctionStack(
-		function(){/* do something */},
-		function(){/* do something */},
-		function(){/* do something */}
-	);
+	var stack = new FunctionStack([function1[,function2[,...]]]);
 
 ### Arguments
 
-a list of functions.
+an unlimited list of functions
 
 FunctionStack Method: Push {#FunctionStack:push}
 -------------------------------------------------
 <big>Pushes functions into the stack</big>
 
 ### Syntax
-	stack.push(
-		function(){/* do something */},
-		function(){/* do something */},
-		function(){/* do something */}
-	);
+	stack.push(function1[,function2[,...]]);
 
 FunctionStack Method: Step {#FunctionStack:step}
 ------------------------------------------------
-<big>Will call the next function in the stack. if any paramaters were provided, will send them to the function</big>
+<big>Will call the next function in the stack. If any paramaters were provided, will send them to the function.</big>
 
 ### Syntax
-	stack.step(var1,var2,var3 /*....*/);
+	stack.step([arg1[,arg2[,...]]]);
+
+### Arguments
+
+The method will pass any arguments passed to it to the called function
+
+### Returns
+
+The method will return the returned value of the last function called.
 
 FunctionStack Method: Play {#FunctionStack:play}
 -------------------------------------------------
@@ -50,20 +50,29 @@ FunctionStack Method: Play {#FunctionStack:play}
 1. duration (`int` defaults to 1000): a duration to wait between calls.
 2. args (`array`): an array of paramaters to send to the functions
 
+### Returns 
+Will return the FunctionStack instance
+
 FunctionStack Method: Pause {#FunctionStack:pause}
 ---------------------------------------------------
 <big>Will pause stack calls without reseting the index</big>
 
 ### Syntax
 	stack.pause();
-	
+
+### Returns 
+Will return the FunctionStack instance	
+
 FunctionStack Method: Stop {#FunctionStack:stop}
 --------------------------------------------------
 <big>Stops the stock periodiacl calls. Will reset the index</big>
 
 ### Syntax
 	stack.stop()
-	
+
+### Returns 
+Will return the FunctionStack instance	
+
 FunctionStack Method: Reset {#FunctionStack:reset}
 ----------------------------------------------------
 <big>Resests the stack index</big>
@@ -71,9 +80,15 @@ FunctionStack Method: Reset {#FunctionStack:reset}
 ### Syntax
 	stack.reset()
 
+### Returns 
+Will return the FunctionStack instance
+
 FunctionStack Method: Clear {#FunctionStack:clear}
 ---------------------------------------------------
 <big>Clears the stack</big>
 
 ### Syntax
 	stack.clear()
+
+### Returns 
+Will return the FunctionStack instance
