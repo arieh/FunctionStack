@@ -15,7 +15,7 @@ provides: [FunctionStack]
 ...
 */
 /*!
-Copyright (c) 2009 Arieh Glazer
+Copyright (c) 2010 Arieh Glazer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -37,27 +37,29 @@ THE SOFTWARE
 */
 var FunctionStack = new Class({
 	handle : $empty, //holder of interval pointer
-	list : [(function(){this.stop();}).bind(this)], //stack holder
+	list : [], //stack holder
 	index : 0, //current stack index
 	defaultDuration : 1000, //default timeout between function calls
 	initialize: function(){
 		this.push.apply(this,arguments || []);
 	},
 	push : function(){
-		var func = this.list.pop();
 		this.list.extend(arguments);
-		this.list.push(func);
+		this.list.clean();
 	},
 	step : function(){
 		if (this.index < this.list.length) return this.list[this.index++].run(arguments || []);
 		return null;
 	},
 	play : function(duration,args){
+		this.list.erase(this._stopper);
+		this.list.push(this._stopper);
 		this.handle = this.step.periodical(duration || this.defaultDuration, this, args || []);
 		return this;
 	},
 	stop : function(){
 		$clear(this.handle);
+		this.list.erase(this._stopper);
 		this.reset();
 		return this;
 	},
@@ -71,7 +73,9 @@ var FunctionStack = new Class({
 	},
 	clear : function(){
 		this.reset();
-		this.list =  [(function(){this.stop();}).bind(this)];
 		return this;
+	},
+	_stopper : function(){
+		this.stop();
 	}
 });
