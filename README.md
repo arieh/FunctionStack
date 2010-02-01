@@ -5,7 +5,7 @@ This class is different from Chain in few ways:
 
 1. It is ment to be used as a periodical caller - the play method.
 2. It is posible to pass arguments to the functions in the stack.
-3. It is not ment to be implemented by other classes (class method names are trivial and probably will be needed by implementors (push, play, clear, reset, stop, pause)
+3. It is ment to be used as a standalone, not to be implemented by other classes. Class method names are trivial and probably will be needed by implementors (push, play, clear, reset, stop, pause).
 
 ![Screenshot](http://github.com/arieh/FunctionStack/raw/master/screenshot.png)
 
