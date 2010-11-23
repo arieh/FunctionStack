@@ -8,7 +8,7 @@ authors:
 - Arieh Glazer
 
 requires:
-- core/1.2.4: Class
+- core/1.2.4: [Class]
 
 provides: [FunctionStack]
 
@@ -35,6 +35,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE 
 */
+(function($empty){
+
 var FunctionStack = new Class({
 	handle : $empty, //holder of interval pointer
 	list : [], //stack holder
@@ -58,13 +60,13 @@ var FunctionStack = new Class({
 		return this;
 	},
 	stop : function(){
-		$clear(this.handle);
+		clearInterval(this.handle);
 		this.list.erase(this._stopper);
 		this.reset();
 		return this;
 	},
 	pause : function(){
-		$clear(this.handle);
+		clearInterval(this.handle);
 		return this;
 	},
 	reset : function(){
@@ -79,3 +81,6 @@ var FunctionStack = new Class({
 		this.stop();
 	}
 });
+
+
+})(Function.create());
