@@ -8,7 +8,7 @@ authors:
 - Arieh Glazer
 
 requires:
-- core/1.2.4: [Class]
+- core/1.3: [Class]
 
 provides: [FunctionStack]
 
