@@ -37,7 +37,7 @@ THE SOFTWARE
 */
 (function($empty){
 
-var FunctionStack = new Class({
+FunctionStack = new Class({
 	handle : $empty, //holder of interval pointer
 	list : [], //stack holder
 	index : 0, //current stack index
